@@ -1,26 +1,39 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đăng nhập</title>
+<meta charset="UTF-8">
+<title>Đăng nhập quản trị</title>
 </head>
 <body>
-  <h2>Đăng nhập</h2>
-  <input id="email" type="email" placeholder="Email"><br><br>
-  <input id="password" type="password" placeholder="Mật khẩu"><br><br>
-  <button id="loginBtn">Đăng nhập</button>
 
-  <p id="msg" style="color:red"></p>
+<h2>ĐĂNG NHẬP QUẢN TRỊ</h2>
 
-  <script type="module">
-    import { login } from "./firebase.js";
+<input id="user" placeholder="Tài khoản"><br><br>
+<input id="pass" type="password" placeholder="Mật khẩu"><br><br>
+<button onclick="login()">Đăng nhập</button>
 
-    document.getElementById("loginBtn").onclick = () => {
-      login(
-        document.getElementById("email").value,
-        document.getElementById("password").value
-      );
-    };
-  </script>
+<p id="msg" style="color:red"></p>
+
+<script>
+const accounts = {
+  admin: "123456",
+  vanthu: "thcs2025",
+  hieutruong: "dienbiendong"
+};
+
+function login() {
+  const u = user.value.trim();
+  const p = pass.value.trim();
+
+  if (accounts[u] && accounts[u] === p) {
+    localStorage.setItem("login", "ok");
+    localStorage.setItem("role", u);
+    location.href = "admin.html";
+  } else {
+    msg.innerText = "Sai tài khoản hoặc mật khẩu";
+  }
+}
+</script>
+
 </body>
 </html>

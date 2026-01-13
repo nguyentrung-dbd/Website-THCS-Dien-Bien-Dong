@@ -1,24 +1,101 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin</title>
+<meta charset="UTF-8">
+<title>Quản trị tin tức</title>
 </head>
 <body>
-  <h1>Trang quản trị</h1>
-  <button id="logout">Đăng xuất</button>
 
-  <script type="module">
-    import { auth, logout } from "./firebase.js";
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+<script>
+if (localStorage.getItem("login") !== "ok") {
+  location.href = "login.html";
+}
+</script>
 
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "login.html";
-      }
-    });
+<h1>TRANG QUẢN TRỊ – ĐĂNG TIN</h1>
+<p>Xin chào: <b id="role"></b></p>
+<button onclick="logout()">Đăng xuất</button>
+<hr>
 
-    document.getElementById("logout").onclick = logout;
-  </script>
+<h3>Đăng / chỉnh sửa tin</h3>
+
+<input id="title" placeholder="Tiêu đề"><br><br>
+<textarea id="content" rows="6" cols="60" placeholder="Nội dung"></textarea><br><br>
+
+<button onclick="save()">Lưu tin</button>
+<button onclick="reset()">Huỷ</button>
+
+<hr>
+<h3>Danh sách tin</h3>
+<div id="list"></div>
+
+<script>
+role.innerText = localStorage.getItem("role");
+
+let editIndex = -1;
+
+function logout() {
+  localStorage.clear();
+  location.href = "login.html";
+}
+
+function load() {
+  const news = JSON.parse(localStorage.getItem("news") || "[]");
+  list.innerHTML = "";
+  news.forEach((n,i)=>{
+    list.innerHTML += `
+      <div style="border:1px solid #ccc;padding:8px;margin:8px">
+        <b>${n.title}</b> <small>(${n.date})</small>
+        <p>${n.content}</p>
+        <button onclick="edit(${i})">Sửa</button>
+        <button onclick="del(${i})">Xoá</button>
+      </div>
+    `;
+  });
+}
+
+function save() {
+  const news = JSON.parse(localStorage.getItem("news") || "[]");
+  const item = {
+    title: title.value,
+    content: content.value,
+    date: new Date().toLocaleDateString("vi-VN")
+  };
+
+  if (editIndex === -1) {
+    news.unshift(item);
+  } else {
+    news[editIndex] = item;
+    editIndex = -1;
+  }
+
+  localStorage.setItem("news", JSON.stringify(news));
+  reset();
+  load();
+}
+
+function edit(i) {
+  const n = JSON.parse(localStorage.getItem("news"))[i];
+  title.value = n.title;
+  content.value = n.content;
+  editIndex = i;
+}
+
+function del(i) {
+  if (!confirm("Xoá tin này?")) return;
+  const news = JSON.parse(localStorage.getItem("news"));
+  news.splice(i,1);
+  localStorage.setItem("news", JSON.stringify(news));
+  load();
+}
+
+function reset() {
+  title.value = "";
+  content.value = "";
+}
+
+load();
+</script>
+
 </body>
 </html>
