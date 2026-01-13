@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+</head>
+<body>
+  <h1>Trang quản trị</h1>
+  <button id="logout">Đăng xuất</button>
+
+  <script type="module">
+    import { auth, logout } from "./firebase.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    document.getElementById("logout").onclick = logout;
+  </script>
+</body>
+</html>

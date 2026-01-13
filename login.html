@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập</title>
+</head>
+<body>
+  <h2>Đăng nhập</h2>
+  <input id="email" type="email" placeholder="Email"><br><br>
+  <input id="password" type="password" placeholder="Mật khẩu"><br><br>
+  <button id="loginBtn">Đăng nhập</button>
+
+  <p id="msg" style="color:red"></p>
+
+  <script type="module">
+    import { login } from "./firebase.js";
+
+    document.getElementById("loginBtn").onclick = () => {
+      login(
+        document.getElementById("email").value,
+        document.getElementById("password").value
+      );
+    };
+  </script>
+</body>
+</html>
