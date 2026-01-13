@@ -17,18 +17,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+// 🔐 Đăng nhập
 export function login(email, password) {
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      window.location.href = "admin.html";
-    })
-    .catch(err => {
-      document.getElementById("msg").innerText = err.message;
-    });
+  return signInWithEmailAndPassword(auth, email, password);
 }
 
+// 🚪 Đăng xuất
 export function logout() {
-  signOut(auth).then(() => {
+  return signOut(auth).then(() => {
     window.location.href = "login.html";
   });
 }
