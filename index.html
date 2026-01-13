@@ -16,14 +16,32 @@ header h1 { margin:0; font-size:22px; text-transform:uppercase; }
 header p { margin:4px 0 0; font-size:14px; }
 
 /* BANNER */
-.banner { position: relative; max-width:1200px; margin:20px auto; overflow:hidden; border-radius:10px; }
-.banner img { width:100%; display:block; border-radius:10px; }
-.banner-text {
-  position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);
-  color:#fff; background: rgba(0,0,0,0.4); padding:16px 28px; border-radius:8px; text-align:center;
+.banner { 
+  position: relative; 
+  max-width: 1200px; 
+  margin: 20px auto; 
+  overflow: hidden; 
+  border-radius: 10px; 
+  height: 180px; /* giảm 50% */
 }
-.banner-text h2 { margin:0; font-size:26px; }
-.banner-text p { margin:6px 0 0; font-size:15px; }
+.banner img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 10px; 
+}
+.banner-text {
+  position: absolute; 
+  top: 50%; left: 50%; 
+  transform: translate(-50%, -50%);
+  color: #fff; 
+  background: rgba(0,0,0,0.4); 
+  padding: 12px 20px; 
+  border-radius: 8px; 
+  text-align: center;
+}
+.banner-text h2 { margin:0; font-size:20px; }
+.banner-text p { margin:4px 0 0; font-size:13px; }
 
 /* NAV */
 nav { background:#fff; border-bottom:2px solid #0b5ed7; }
@@ -134,7 +152,7 @@ setInterval(() => {
   bannerImg.src = banners[bannerIndex];
 }, 4000);
 
-// Tin nổi bật sẵn có
+// Tin nổi bật
 const newsData = [
   {title:"Lễ khai giảng năm học mới", date:"05/09/2026", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
   {title:"Triển khai nhiệm vụ năm học", date:"12/09/2026", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
