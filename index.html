@@ -1,47 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cổng thông tin – Trường THCS Điện Biên Đông</title>
-  <style>
-    * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-    body { margin:0; background:#eef2f6; color:#222; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cổng thông tin – Trường THCS Điện Biên Đông</title>
+<style>
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+body { margin:0; background:#eef2f6; color:#222; }
 
-    /* HEADER */
-    header { background: linear-gradient(90deg,#0b5ed7,#0d6efd); color:#fff; padding:14px 16px; }
-    header .header-top { max-width:1200px; margin:auto; display:flex; align-items:center; gap:18px; }
-    header img { height:70px; }
-    header h1 { margin:0; font-size:22px; text-transform:uppercase; }
-    header p { margin:4px 0 0; font-size:14px; }
+/* HEADER */
+header { background: linear-gradient(90deg,#0b5ed7,#0d6efd); color:#fff; padding:14px 16px; }
+header .header-top { max-width:1200px; margin:auto; display:flex; align-items:center; gap:18px; }
+header img { height:70px; }
+header h1 { margin:0; font-size:22px; text-transform:uppercase; }
+header p { margin:4px 0 0; font-size:14px; }
 
-    /* NAV */
-    nav { background:#fff; border-bottom:2px solid #0b5ed7; }
-    nav ul { max-width:1200px; margin:auto; list-style:none; padding:0 16px; display:flex; flex-wrap:wrap; gap:28px; }
-    nav li { padding:14px 0; }
-    nav a { text-decoration:none; font-weight:600; color:#0b5ed7; }
-    nav a:hover { text-decoration:underline; }
+/* BANNER */
+.banner { position: relative; max-width:1200px; margin:20px auto; overflow:hidden; border-radius:10px; }
+.banner img { width:100%; display:block; border-radius:10px; }
+.banner-text {
+  position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);
+  color:#fff; background: rgba(0,0,0,0.4); padding:16px 28px; border-radius:8px; text-align:center;
+}
+.banner-text h2 { margin:0; font-size:26px; }
+.banner-text p { margin:6px 0 0; font-size:15px; }
 
-    /* LAYOUT */
-    .container { max-width:1200px; margin:20px auto; padding:0 16px; display:grid; grid-template-columns:3fr 1.2fr; gap:20px; }
+/* NAV */
+nav { background:#fff; border-bottom:2px solid #0b5ed7; }
+nav ul { max-width:1200px; margin:auto; list-style:none; padding:0 16px; display:flex; flex-wrap:wrap; gap:28px; }
+nav li { padding:14px 0; }
+nav a { text-decoration:none; font-weight:600; color:#0b5ed7; }
+nav a:hover { text-decoration:underline; }
 
-    /* CARDS */
-    .card { background:#fff; border-radius:10px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
-    .card h2 { margin-top:0; font-size:18px; color:#0b5ed7; border-bottom:2px solid #e5e5e5; padding-bottom:6px; }
+/* LAYOUT */
+.container { max-width:1200px; margin:20px auto; padding:0 16px; display:grid; grid-template-columns:3fr 1.2fr; gap:20px; }
 
-    /* NEWS */
-    .news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
-    .news-item:last-child { border-bottom:none; }
-    .news-item h3 { margin:0 0 6px; font-size:16px; cursor:pointer; }
-    .news-item p { margin:0; font-size:14px; color:#555; }
-    .news-item small { color:#888; display:block; margin-bottom:6px; }
+/* CARDS */
+.card { background:#fff; border-radius:10px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+.card h2 { margin-top:0; font-size:18px; color:#0b5ed7; border-bottom:2px solid #e5e5e5; padding-bottom:6px; }
 
-    /* SIDEBAR */
-    .sidebar p { margin:8px 0; font-size:14px; }
+/* NEWS */
+.news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
+.news-item:last-child { border-bottom:none; }
+.news-item h3 { margin:0 0 6px; font-size:16px; cursor:pointer; }
+.news-item p { margin:0; font-size:14px; color:#555; }
+.news-item small { color:#888; display:block; margin-bottom:6px; }
 
-    /* FOOTER */
-    footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
-  </style>
+/* SIDEBAR */
+.sidebar p { margin:8px 0; font-size:14px; }
+
+/* FOOTER */
+footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
+</style>
 </head>
 <body>
 
@@ -54,6 +64,15 @@
     </div>
   </div>
 </header>
+
+<!-- BANNER -->
+<div class="banner">
+  <img id="bannerImg" src="banner1.jpg" alt="Banner trường" />
+  <div class="banner-text">
+    <h2>TRƯỜNG THCS ĐIỆN BIÊN ĐÔNG</h2>
+    <p>Đổi mới – Kỷ cương – Chất lượng – Nhân văn</p>
+  </div>
+</div>
 
 <nav>
   <ul>
@@ -90,15 +109,14 @@
 <section id="tin-tuc" class="container">
   <div class="card">
     <h2>Tin nổi bật</h2>
-    <div id="news"></div> <!-- Nơi hiển thị tin nổi bật -->
+    <div id="news"></div>
   </div>
 
   <div class="card sidebar">
-    <h2>Thông báo</h2>
-    <p>📌 Lịch công tác tuần</p>
-    <p>📌 Thông báo họp hội đồng</p>
-    <p>📌 Kế hoạch năm học</p>
-    <p>📌 Công khai theo Thông tư 36</p>
+    <h2>Văn bản công khai</h2>
+    <p>• <a href="vb1.pdf" target="_blank">Quyết định thành lập trường</a></p>
+    <p>• <a href="vb2.pdf" target="_blank">Kế hoạch năm học 2026</a></p>
+    <p>• <a href="vb3.pdf" target="_blank">Thông báo tuyển sinh</a></p>
   </div>
 </section>
 
@@ -107,39 +125,47 @@
 </footer>
 
 <script>
-  // Lấy tin nổi bật từ localStorage
-  const news = JSON.parse(localStorage.getItem("news") || "[]");
-  const newsBox = document.getElementById("news");
+// Banner luân phiên
+const banners = ["banner1.jpg","banner2.jpg","banner3.jpg"];
+let bannerIndex = 0;
+const bannerImg = document.getElementById("bannerImg");
+setInterval(() => {
+  bannerIndex = (bannerIndex + 1) % banners.length;
+  bannerImg.src = banners[bannerIndex];
+}, 4000);
 
-  if(news.length === 0){
-    newsBox.innerHTML = "<p>Chưa có tin nổi bật.</p>";
-  } else {
-    news.forEach((n) => {
-      const div = document.createElement("div");
-      div.className = "news-item";
+// Tin nổi bật sẵn có
+const newsData = [
+  {title:"Lễ khai giảng năm học mới", date:"05/09/2026", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
+  {title:"Triển khai nhiệm vụ năm học", date:"12/09/2026", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
+  {title:"Hoạt động trải nghiệm học sinh", date:"20/09/2026", content:"Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh."}
+];
 
-      // Tiêu đề click để mở/đóng
-      const h3 = document.createElement("h3");
-      h3.innerText = n.title;
+const newsBox = document.getElementById("news");
+newsData.forEach(n => {
+  const div = document.createElement("div");
+  div.className = "news-item";
 
-      const small = document.createElement("small");
-      small.innerText = n.date;
+  const h3 = document.createElement("h3");
+  h3.innerText = n.title;
 
-      const p = document.createElement("p");
-      p.innerText = n.content;
-      p.style.display = "none"; // ẩn ban đầu
+  const small = document.createElement("small");
+  small.innerText = n.date;
 
-      h3.onclick = () => {
-        p.style.display = p.style.display === "none" ? "block" : "none";
-      };
+  const p = document.createElement("p");
+  p.innerText = n.content;
+  p.style.display = "none";
 
-      div.appendChild(h3);
-      div.appendChild(small);
-      div.appendChild(p);
+  h3.onclick = () => {
+    p.style.display = p.style.display === "none" ? "block" : "none";
+  };
 
-      newsBox.appendChild(div);
-    });
-  }
+  div.appendChild(h3);
+  div.appendChild(small);
+  div.appendChild(p);
+
+  newsBox.appendChild(div);
+});
 </script>
 
 </body>
