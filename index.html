@@ -1,78 +1,59 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cổng thông tin – Trường THCS Điện Biên Đông</title>
-<style>
-* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-body { margin:0; background:#eef2f6; color:#222; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cổng thông tin – Trường THCS Điện Biên Đông</title>
+  <style>
+    * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+    body { margin:0; background:#eef2f6; color:#222; }
 
-/* HEADER */
-header { background: linear-gradient(90deg,#0b5ed7,#0d6efd); color:#fff; padding:14px 16px; }
-header .header-top { max-width:1200px; margin:auto; display:flex; align-items:center; gap:18px; }
-header img { height:70px; }
-header h1 { margin:0; font-size:22px; text-transform:uppercase; }
-header p { margin:4px 0 0; font-size:14px; }
+    /* HEADER */
+    header { background: linear-gradient(90deg,#0b5ed7,#0d6efd); color:#fff; padding:14px 16px; }
+    header .header-top { max-width:1200px; margin:auto; display:flex; align-items:center; gap:18px; }
+    header img { height:70px; }
+    header h1 { margin:0; font-size:22px; text-transform:uppercase; }
+    header p { margin:4px 0 0; font-size:14px; }
 
-/* BANNER */
-.banner { 
-  position: relative; 
-  max-width: 1200px; 
-  margin: 20px auto; 
-  overflow: hidden; 
-  border-radius: 10px; 
-  height: 180px; 
-}
-.banner img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  border-radius: 10px; 
-}
-.banner-text {
-  position: absolute; 
-  top: 50%; left: 50%; 
-  transform: translate(-50%, -50%);
-  color: #fff; 
-  background: rgba(0,0,0,0.4); 
-  padding: 12px 20px; 
-  border-radius: 8px; 
-  text-align: center;
-}
-.banner-text h2 { margin:0; font-size:20px; }
-.banner-text p { margin:4px 0 0; font-size:13px; }
+    /* NAV */
+    nav { background:#fff; border-bottom:2px solid #0b5ed7; }
+    nav ul { max-width:1200px; margin:auto; list-style:none; padding:0 16px; display:flex; flex-wrap:wrap; gap:28px; }
+    nav li { padding:14px 0; }
+    nav a { text-decoration:none; font-weight:600; color:#0b5ed7; }
+    nav a:hover { text-decoration:underline; }
 
-/* NAV */
-nav { background:#fff; border-bottom:2px solid #0b5ed7; }
-nav ul { max-width:1200px; margin:auto; list-style:none; padding:0 16px; display:flex; flex-wrap:wrap; gap:28px; }
-nav li { padding:14px 0; }
-nav a { text-decoration:none; font-weight:600; color:#0b5ed7; }
-nav a:hover { text-decoration:underline; }
+    /* BANNER */
+    .banner { position: relative; max-height:180px; overflow:hidden; }
+    .banner img { width:100%; max-height:180px; object-fit:cover; display:block; }
+    .banner-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:white; background:rgba(0,0,0,0.4); padding:12px 20px; border-radius:6px; }
+    .banner-text h2 { margin:0; font-size:22px; letter-spacing:1px; }
+    .banner-text p { margin:4px 0 0; font-size:14px; }
+    .dots { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:6px; }
+    .dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.6); cursor:pointer; }
+    .dot.active { background:white; }
 
-/* LAYOUT */
-.container { max-width:1200px; margin:20px auto; padding:0 16px; display:grid; grid-template-columns:3fr 1.2fr; gap:20px; }
+    /* LAYOUT */
+    .container { max-width:1200px; margin:20px auto; padding:0 16px; display:grid; grid-template-columns:3fr 1.2fr; gap:20px; }
 
-/* CARDS */
-.card { background:#fff; border-radius:10px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
-.card h2 { margin-top:0; font-size:18px; color:#0b5ed7; border-bottom:2px solid #e5e5e5; padding-bottom:6px; }
+    /* CARDS */
+    .card { background:#fff; border-radius:10px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .card h2 { margin-top:0; font-size:18px; color:#0b5ed7; border-bottom:2px solid #e5e5e5; padding-bottom:6px; }
 
-/* NEWS */
-.news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
-.news-item:last-child { border-bottom:none; }
-.news-item h3 { margin:0 0 6px; font-size:16px; cursor:pointer; }
-.news-item p { margin:0; font-size:14px; color:#555; }
-.news-item small { color:#888; display:block; margin-bottom:6px; }
+    /* NEWS */
+    .news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
+    .news-item:last-child { border-bottom:none; }
+    .news-item h3 { margin:0 0 6px; font-size:16px; cursor:pointer; }
+    .news-item p { margin:0; font-size:14px; color:#555; display:none; }
+    .news-item small { color:#888; display:block; margin-bottom:6px; }
 
-/* SIDEBAR */
-.sidebar p { margin:8px 0; font-size:14px; }
+    /* SIDEBAR */
+    .sidebar p { margin:8px 0; font-size:14px; }
+    .sidebar a { color:#0b5ed7; text-decoration:none; }
+    .sidebar a:hover { text-decoration:underline; }
 
-/* FOOTER */
-footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
-
-/* VISIT COUNTER */
-#viewCounter { text-align:center; margin:10px 0; font-weight:bold; color:#0b5ed7; }
-</style>
+    /* FOOTER */
+    footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
+  </style>
 </head>
 <body>
 
@@ -86,15 +67,42 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
   </div>
 </header>
 
-<!-- BANNER -->
+<!-- BANNER SLIDER -->
 <div class="banner">
-  <img id="bannerImg" src="banner1.jpg" alt="Banner trường" />
+  <img id="bannerImg" src="banner1.jpg" alt="Banner Trường THCS Điện Biên Đông" />
   <div class="banner-text">
     <h2>TRƯỜNG THCS ĐIỆN BIÊN ĐÔNG</h2>
     <p>Đổi mới – Kỷ cương – Chất lượng – Nhân văn</p>
-    <p id="viewCounter">Lượt xem: ...</p>
   </div>
+  <div class="dots" id="dots"></div>
 </div>
+
+<script>
+  const banners = ["banner1.jpg","banner2.jpg","banner3.jpg"];
+  let index = 0;
+  const img = document.getElementById("bannerImg");
+  const dotsContainer = document.getElementById("dots");
+
+  banners.forEach((_,i)=>{
+    const dot = document.createElement("span");
+    dot.className = i===0?"dot active":"dot";
+    dot.onclick = ()=>{ showBanner(i); };
+    dotsContainer.appendChild(dot);
+  });
+
+  function showBanner(i){
+    index=i;
+    img.src=banners[index];
+    document.querySelectorAll(".dot").forEach((d,idx)=>{
+      d.classList.toggle("active", idx===index);
+    });
+  }
+
+  setInterval(()=>{
+    index=(index+1)%banners.length;
+    showBanner(index);
+  },4000);
+</script>
 
 <nav>
   <ul>
@@ -114,8 +122,8 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
     <p><strong>Địa chỉ:</strong> Tổ 4, Xã Na Son, tỉnh Điện Biên</p>
     <p><strong>Loại hình:</strong> Trường Trung học cơ sở công lập</p>
     <p><strong>Hiệu trưởng:</strong> Nguyễn Đức Lập – SĐT: 0366744638</p>
-    <p><strong>Lịch sử hình thành:</strong> Trường THCS Thị Trấn Điện Biên Đông thành lập tháng 8/2004. Ngày 08/11/2019 công nhận chất lượng GD cấp độ 3, ngày 15/11/2019 đạt chuẩn Quốc gia mức 2.</p>
-    <p><strong>Sứ mệnh:</strong> Tạo môi trường học tập nền nếp, kỷ cương, chất lượng cao, phát triển tài năng và tư duy sáng tạo cho HS.</p>
+    <p><strong>Lịch sử hình thành:</strong> Trường thành lập tháng 8/2004. Ngày 08/11/2019 công nhận chất lượng GD cấp độ 3, ngày 15/11/2019 đạt chuẩn Quốc gia mức 2.</p>
+    <p><strong>Sứ mệnh:</strong> Môi trường học tập nền nếp, kỷ cương, chất lượng cao, phát triển tài năng và tư duy sáng tạo cho HS.</p>
     <p><strong>Tầm nhìn:</strong> Đào tạo con người mạnh khỏe, tri thức, đạo đức, tư duy sáng tạo, kỹ năng sống, kỹ năng giải quyết vấn đề, ứng xử văn hóa cộng đồng.</p>
     <p><strong>Hệ thống giá trị cơ bản:</strong></p>
     <ul>
@@ -133,21 +141,6 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
   </div>
 
   <div class="card sidebar">
-    <h2>Cơ cấu tổ chức</h2>
-    <p>• Ban giám hiệu: 03 Đc</p>
-    <p>• Tổ chuyên môn: 02 Tổ, gồm KHTN và KHXH với 21 GV</p>
-    <p>• Văn phòng: 04 Đc</p>
-    <p>• Đoàn – Đội: 01 Đc</p>
-  </div>
-</section>
-
-<section id="tin-tuc" class="container">
-  <div class="card">
-    <h2>Tin nổi bật</h2>
-    <div id="news"></div>
-  </div>
-
-  <div class="card sidebar">
     <h2>Văn bản công khai</h2>
     <p>• <a href="vb1.pdf" target="_blank">Công khai theo 09 năm 23-24</a></p>
     <p>• <a href="vb2.pdf" target="_blank">Công khai theo 09 năm 24-25</a></p>
@@ -158,63 +151,56 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
   </div>
 </section>
 
+<section id="tin-tuc" class="container">
+  <div class="card">
+    <h2>Tin nổi bật</h2>
+    <div id="news"></div>
+  </div>
+
+  <div class="card sidebar">
+    <h2>Thông báo</h2>
+    <p>📌 Lịch công tác tuần</p>
+    <p>📌 Thông báo họp hội đồng</p>
+    <p>📌 Kế hoạch năm học</p>
+    <p>📌 Công khai theo Thông tư 36</p>
+  </div>
+</section>
+
 <footer>
   © 2026 Trường THCS Điện Biên Đông – Cổng thông tin điện tử
 </footer>
 
 <script>
-// Banner luân phiên
-const banners = ["banner1.jpg","banner2.jpg","banner3.jpg"];
-let bannerIndex = 0;
-const bannerImg = document.getElementById("bannerImg");
-setInterval(() => {
-  bannerIndex = (bannerIndex + 1) % banners.length;
-  bannerImg.src = banners[bannerIndex];
-}, 4000);
+  // Tin nổi bật (click mở/đóng)
+  const defaultNews = [
+    {title:"Lễ khai giảng năm học mới", date:"05/09/2025", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
+    {title:"Triển khai nhiệm vụ năm học", date:"12/09/2025", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
+    {title:"Hoạt động trải nghiệm học sinh", date:"20/09/2025", content:"Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh."}
+  ];
 
-// Tin nổi bật
-const newsData = [
-  {title:"Lễ khai giảng năm học mới", date:"05/09/2025", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
-  {title:"Triển khai nhiệm vụ năm học", date:"12/09/2025", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
-  {title:"Hoạt động trải nghiệm học sinh", date:"20/09/2025", content:"Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh."}
-];
+  const newsBox = document.getElementById("news");
+  const newsData = JSON.parse(localStorage.getItem("news")||JSON.stringify(defaultNews));
 
-const newsBox = document.getElementById("news");
-newsData.forEach(n => {
-  const div = document.createElement("div");
-  div.className = "news-item";
+  newsData.forEach(n=>{
+    const div=document.createElement("div");
+    div.className="news-item";
 
-  const h3 = document.createElement("h3");
-  h3.innerText = n.title;
+    const h3=document.createElement("h3");
+    h3.innerText=n.title;
 
-  const small = document.createElement("small");
-  small.innerText = n.date;
+    const small=document.createElement("small");
+    small.innerText=n.date;
 
-  const p = document.createElement("p");
-  p.innerText = n.content;
-  p.style.display = "none";
+    const p=document.createElement("p");
+    p.innerText=n.content;
 
-  h3.onclick = () => { p.style.display = p.style.display === "none" ? "block" : "none"; };
+    h3.onclick=()=>{ p.style.display=p.style.display==="none"?"block":"none"; };
 
-  div.appendChild(h3);
-  div.appendChild(small);
-  div.appendChild(p);
+    div.appendChild(h3);
+    div.appendChild(small);
+    div.appendChild(p);
 
-  newsBox.appendChild(div);
-});
-
-// Visit counter - CountAPI
-const namespace = "dienbiendongschool";
-const key = "indexpage";
-
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("viewCounter").innerText = "Lượt xem: " + data.value;
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("viewCounter").innerText = "Lượt xem: 0";
+    newsBox.appendChild(div);
   });
 </script>
 
