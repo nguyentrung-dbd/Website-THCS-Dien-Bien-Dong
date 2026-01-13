@@ -22,7 +22,7 @@ header p { margin:4px 0 0; font-size:14px; }
   margin: 20px auto; 
   overflow: hidden; 
   border-radius: 10px; 
-  height: 180px; /* giảm 50% */
+  height: 180px; 
 }
 .banner img { 
   width: 100%; 
@@ -69,6 +69,9 @@ nav a:hover { text-decoration:underline; }
 
 /* FOOTER */
 footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
+
+/* VISIT COUNTER */
+#viewCounter { text-align:center; margin:10px 0; font-weight:bold; color:#0b5ed7; }
 </style>
 </head>
 <body>
@@ -89,6 +92,7 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
   <div class="banner-text">
     <h2>TRƯỜNG THCS ĐIỆN BIÊN ĐÔNG</h2>
     <p>Đổi mới – Kỷ cương – Chất lượng – Nhân văn</p>
+    <p id="viewCounter">Lượt xem: ...</p>
   </div>
 </div>
 
@@ -107,20 +111,33 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
   <div class="card">
     <h2>Giới thiệu nhà trường</h2>
     <p><strong>Tên trường:</strong> Trường THCS Điện Biên Đông</p>
-    <p><strong>Địa chỉ:</strong> Xã Na Son, tỉnh Điện Biên</p>
+    <p><strong>Địa chỉ:</strong> Tổ 4, Xã Na Son, tỉnh Điện Biên</p>
     <p><strong>Loại hình:</strong> Trường Trung học cơ sở công lập</p>
-    <p><strong>Lịch sử hình thành:</strong> Trường được thành lập từ năm …, trải qua nhiều giai đoạn xây dựng và phát triển, nhà trường không ngừng nâng cao chất lượng dạy và học.</p>
-    <p><strong>Sứ mệnh:</strong> Cung cấp môi trường giáo dục an toàn, lành mạnh; phát triển toàn diện năng lực và phẩm chất học sinh.</p>
-    <p><strong>Tầm nhìn:</strong> Trở thành cơ sở giáo dục có chất lượng, uy tín tại địa phương.</p>
-    <p><strong>Đội ngũ:</strong> Tổng số cán bộ, giáo viên, nhân viên: … người.</p>
+    <p><strong>Hiệu trưởng:</strong> Nguyễn Đức Lập – SĐT: 0366744638</p>
+    <p><strong>Lịch sử hình thành:</strong> Trường THCS Thị Trấn Điện Biên Đông được thành lập tháng 8/2004. Ngày 08/11/2019, Sở GD&ĐT tỉnh Điện Biên công nhận cấp độ 3, ngày 15/11/2019, UBND tỉnh công nhận chuẩn Quốc gia mức 2.</p>
+    <p><strong>Sứ mệnh:</strong> Tạo môi trường học tập nền nếp, kỷ cương, chất lượng cao, mỗi học sinh đều có cơ hội phát triển tài năng và tư duy sáng tạo.</p>
+    <p><strong>Tầm nhìn:</strong> Đào tạo con người mạnh khỏe, tri thức, đạo đức, bản lĩnh trung thực, tư duy sáng tạo, kỹ năng sống, kỹ năng giải quyết vấn đề, kỹ năng ứng xử văn hóa cộng đồng.</p>
+    <p><strong>Hệ thống giá trị cơ bản:</strong></p>
+    <ul>
+      <li>Tình đoàn kết</li>
+      <li>Lòng nhân ái</li>
+      <li>Tinh thần trách nhiệm</li>
+      <li>Sự hợp tác</li>
+      <li>Lòng tự trọng</li>
+      <li>Tính sáng tạo</li>
+      <li>Tính trung thực</li>
+      <li>Khát vọng vươn lên</li>
+    </ul>
+    <p><strong>Mục tiêu:</strong> Thực hiện chương trình GDPT 2018, tạo môi trường học tập nền nếp, kỷ cương, chất lượng cao.</p>
+    <p><strong>Đội ngũ:</strong> Tổng số cán bộ, giáo viên, nhân viên: 27 người</p>
   </div>
 
   <div class="card sidebar">
     <h2>Cơ cấu tổ chức</h2>
-    <p>• Ban giám hiệu</p>
-    <p>• Tổ chuyên môn</p>
-    <p>• Văn phòng</p>
-    <p>• Đoàn – Đội</p>
+    <p>• Ban giám hiệu: 03 Đc</p>
+    <p>• Tổ chuyên môn: 02 Tổ, gồm KHTN và KHXH với 21 GV</p>
+    <p>• Văn phòng: 04 Đc</p>
+    <p>• Đoàn – Đội: 01 Đc</p>
   </div>
 </section>
 
@@ -132,9 +149,12 @@ footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin
 
   <div class="card sidebar">
     <h2>Văn bản công khai</h2>
-    <p>• <a href="vb1.pdf" target="_blank">Quyết định thành lập trường</a></p>
-    <p>• <a href="vb2.pdf" target="_blank">Kế hoạch năm học 2026</a></p>
-    <p>• <a href="vb3.pdf" target="_blank">Thông báo tuyển sinh</a></p>
+    <p>• <a href="vb1.pdf" target="_blank">Công khai theo 09 năm 23-24</a></p>
+    <p>• <a href="vb2.pdf" target="_blank">Công khai theo 09 năm 24-25</a></p>
+    <p>• <a href="vb3.pdf" target="_blank">Báo cáo thường niên năm học 2024-2025 -1</a></p>
+    <p>• <a href="vb4.pdf" target="_blank">KH công khai</a></p>
+    <p>• <a href="vb5.pdf" target="_blank">QD công khai</a></p>
+    <p>• <a href="vb6.pdf" target="_blank">Thông tin về GV và CSVC</a></p>
   </div>
 </section>
 
@@ -154,9 +174,9 @@ setInterval(() => {
 
 // Tin nổi bật
 const newsData = [
-  {title:"Lễ khai giảng năm học mới", date:"05/09/2026", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
-  {title:"Triển khai nhiệm vụ năm học", date:"12/09/2026", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
-  {title:"Hoạt động trải nghiệm học sinh", date:"20/09/2026", content:"Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh."}
+  {title:"Lễ khai giảng năm học mới", date:"05/09/2025", content:"Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của toàn thể cán bộ giáo viên và học sinh."},
+  {title:"Triển khai nhiệm vụ năm học", date:"12/09/2025", content:"Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành."},
+  {title:"Hoạt động trải nghiệm học sinh", date:"20/09/2025", content:"Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh."}
 ];
 
 const newsBox = document.getElementById("news");
@@ -174,9 +194,7 @@ newsData.forEach(n => {
   p.innerText = n.content;
   p.style.display = "none";
 
-  h3.onclick = () => {
-    p.style.display = p.style.display === "none" ? "block" : "none";
-  };
+  h3.onclick = () => { p.style.display = p.style.display === "none" ? "block" : "none"; };
 
   div.appendChild(h3);
   div.appendChild(small);
@@ -184,6 +202,20 @@ newsData.forEach(n => {
 
   newsBox.appendChild(div);
 });
+
+// Visit counter - CountAPI
+const namespace = "dienbiendongschool";
+const key = "indexpage";
+
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("viewCounter").innerText = "Lượt xem: " + data.value;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("viewCounter").innerText = "Lượt xem: 0";
+  });
 </script>
 
 </body>
