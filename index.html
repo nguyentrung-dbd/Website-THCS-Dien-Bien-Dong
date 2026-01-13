@@ -6,110 +6,41 @@
   <title>Cổng thông tin – Trường THCS Điện Biên Đông</title>
   <style>
     * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-    body { margin: 0; background: #eef2f6; color: #222; }
+    body { margin:0; background:#eef2f6; color:#222; }
 
     /* HEADER */
-    header { background: linear-gradient(90deg, #0b5ed7, #0d6efd); color: #fff; }
-    .header-top {
-      max-width: 1200px; margin: auto; padding: 14px 16px;
-      display: flex; align-items: center; gap: 18px;
-    }
-    header img { height: 70px; }
-    header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
-    header p { margin: 4px 0 0; font-size: 14px; }
-
-    /* BANNER */
-    .banner { position: relative; }
-    .banner img {
-      width: 100%;
-      max-height: 360px;
-      object-fit: cover;
-      display: block;
-    }
-    .banner-text {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      padding: 16px 28px;
-      border-radius: 8px;
-    }
-    .banner-text h2 {
-      margin: 0; font-size: 26px; letter-spacing: 1px;
-    }
-    .banner-text p {
-      margin: 6px 0 0; font-size: 15px;
-    }
-    .dots {
-      position: absolute; bottom: 12px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 8px;
-    }
-    .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: rgba(255,255,255,0.6);
-      cursor: pointer;
-    }
-    .dot.active { background: white; }
+    header { background: linear-gradient(90deg,#0b5ed7,#0d6efd); color:#fff; padding:14px 16px; }
+    header .header-top { max-width:1200px; margin:auto; display:flex; align-items:center; gap:18px; }
+    header img { height:70px; }
+    header h1 { margin:0; font-size:22px; text-transform:uppercase; }
+    header p { margin:4px 0 0; font-size:14px; }
 
     /* NAV */
-    nav { background: #ffffff; border-bottom: 2px solid #0b5ed7; }
-    nav ul {
-      max-width: 1200px; margin: auto; list-style: none; padding: 0 16px;
-      display: flex; flex-wrap: wrap; gap: 28px;
-    }
-    nav li { padding: 14px 0; }
-    nav a { text-decoration: none; font-weight: 600; color: #0b5ed7; }
-    nav a:hover { text-decoration: underline; }
+    nav { background:#fff; border-bottom:2px solid #0b5ed7; }
+    nav ul { max-width:1200px; margin:auto; list-style:none; padding:0 16px; display:flex; flex-wrap:wrap; gap:28px; }
+    nav li { padding:14px 0; }
+    nav a { text-decoration:none; font-weight:600; color:#0b5ed7; }
+    nav a:hover { text-decoration:underline; }
 
     /* LAYOUT */
-    .container {
-      max-width: 1200px; margin: 20px auto; padding: 0 16px;
-      display: grid; grid-template-columns: 3fr 1.2fr; gap: 20px;
-    }
+    .container { max-width:1200px; margin:20px auto; padding:0 16px; display:grid; grid-template-columns:3fr 1.2fr; gap:20px; }
 
     /* CARDS */
-    .card {
-      background: #fff; border-radius: 10px; padding: 18px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .card h2 {
-      margin-top: 0; font-size: 18px; color: #0b5ed7;
-      border-bottom: 2px solid #e5e5e5; padding-bottom: 6px;
-    }
+    .card { background:#fff; border-radius:10px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .card h2 { margin-top:0; font-size:18px; color:#0b5ed7; border-bottom:2px solid #e5e5e5; padding-bottom:6px; }
 
     /* NEWS */
-    .news-item { padding: 12px 0; border-bottom: 1px dashed #ddd; }
-    .news-item:last-child { border-bottom: none; }
-    .news-item h3 { margin: 0 0 6px; font-size: 16px; }
-    .news-item p { margin: 0; font-size: 14px; color: #555; }
+    .news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
+    .news-item:last-child { border-bottom:none; }
+    .news-item h3 { margin:0 0 6px; font-size:16px; }
+    .news-item p { margin:0; font-size:14px; color:#555; }
+    .news-item small { color:#888; }
 
     /* SIDEBAR */
-    .sidebar p { margin: 8px 0; font-size: 14px; }
+    .sidebar p { margin:8px 0; font-size:14px; }
 
-    /* LOGIN */
-    .login {
-      max-width: 420px; margin: 40px auto;
-      background: #fff; padding: 24px; border-radius: 10px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-    }
-    .login h2 { text-align: center; color: #0b5ed7; margin-top: 0; }
-    .login input {
-      width: 100%; padding: 12px; margin: 10px 0; font-size: 15px;
-      border: 1px solid #ccc; border-radius: 6px;
-    }
-    .login button {
-      width: 100%; padding: 12px; font-size: 16px;
-      background: #0b5ed7; color: white; border: none; border-radius: 6px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #0b5ed7; color: #fff; text-align: center;
-      padding: 12px; margin-top: 30px; font-size: 14px;
-    }
+    /* FOOTER */
+    footer { background:#0b5ed7; color:#fff; text-align:center; padding:12px; margin-top:30px; font-size:14px; }
   </style>
 </head>
 <body>
@@ -122,54 +53,16 @@
       <p>Cổng thông tin điện tử – Xã Na Son, tỉnh Điện Biên</p>
     </div>
   </div>
-  </div>
 </header>
-
-<!-- BANNER SLIDER -->
-<div class="banner">
-  <img id="bannerImg" src="banner1.jpg" alt="Banner Trường THCS Điện Biên Đông" />
-  <div class="banner-text">
-    <h2>TRƯỜNG THCS ĐIỆN BIÊN ĐÔNG</h2>
-    <p>Đổi mới – Kỷ cương – Chất lượng – Nhân văn</p>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-
-<script>
-  const banners = ["banner1.jpg", "banner2.jpg", "banner3.jpg"];
-  let index = 0;
-  const img = document.getElementById("bannerImg");
-  const dotsContainer = document.getElementById("dots");
-
-  banners.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.className = i === 0 ? "dot active" : "dot";
-    dot.onclick = () => showBanner(i);
-    dotsContainer.appendChild(dot);
-  });
-
-  function showBanner(i) {
-    index = i;
-    img.src = banners[index];
-    document.querySelectorAll(".dot").forEach((d, idx) => {
-      d.classList.toggle("active", idx === index);
-    });
-  }
-
-  setInterval(() => {
-    index = (index + 1) % banners.length;
-    showBanner(index);
-  }, 4000);
-</script>
 
 <nav>
   <ul>
     <li><a href="#">Trang chủ</a></li>
     <li><a href="#gioi-thieu">Giới thiệu</a></li>
-    <li><a href="#">Tin tức – Sự kiện</a></li>
+    <li><a href="#tin-tuc">Tin tức – Sự kiện</a></li>
     <li><a href="#">Thông báo</a></li>
     <li><a href="#">Văn bản</a></li>
-    <li><a href="#">Đăng nhập</a></li>
+    <li><a href="login.html">Đăng nhập</a></li>
   </ul>
 </nav>
 
@@ -194,24 +87,10 @@
   </div>
 </section>
 
-<div class="container">
+<section id="tin-tuc" class="container">
   <div class="card">
     <h2>Tin nổi bật</h2>
-
-    <div class="news-item">
-      <h3>Lễ khai giảng năm học mới</h3>
-      <p>Trường THCS Điện Biên Đông long trọng tổ chức lễ khai giảng năm học mới với sự tham gia của...</p>
-    </div>
-
-    <div class="news-item">
-      <h3>Triển khai nhiệm vụ năm học</h3>
-      <p>Nhà trường tổ chức họp hội đồng sư phạm nhằm triển khai nhiệm vụ năm học theo chỉ đạo của ngành.</p>
-    </div>
-
-    <div class="news-item">
-      <h3>Hoạt động trải nghiệm học sinh</h3>
-      <p>Các hoạt động trải nghiệm được tổ chức nhằm phát triển năng lực và phẩm chất cho học sinh.</p>
-    </div>
+    <div id="news"></div> <!-- Nơi hiển thị tin từ localStorage -->
   </div>
 
   <div class="card sidebar">
@@ -221,109 +100,31 @@
     <p>📌 Kế hoạch năm học</p>
     <p>📌 Công khai theo Thông tư 36</p>
   </div>
-</div>
-
-<div class="login">
-  <h2>Đăng nhập quản trị</h2>
-  <input type="text" placeholder="Tên đăng nhập" />
-  <input type="password" placeholder="Mật khẩu" />
-  <button>Đăng nhập</button>
-</div>
+</section>
 
 <footer>
   © 2026 Trường THCS Điện Biên Đông – Cổng thông tin điện tử
 </footer>
 
+<script>
+  // Lấy tin từ localStorage
+  const news = JSON.parse(localStorage.getItem("news") || "[]");
+  const newsBox = document.getElementById("news");
+
+  if(news.length === 0){
+    newsBox.innerHTML = "<p>Chưa có tin nào.</p>";
+  } else {
+    news.forEach(n=>{
+      newsBox.innerHTML += `
+        <div class="news-item">
+          <h3>${n.title}</h3>
+          <small>${n.date}</small>
+          <p>${n.content}</p>
+        </div>
+      `;
+    });
+  }
+</script>
+
 </body>
 </html>
-
----
-
-## III. MENU CHUẨN CỔNG THÔNG TIN SGDĐT
-
-### 1. Cấu trúc menu chính (áp dụng chính thức)
-1. Trang chủ
-2. Giới thiệu
-   - Giới thiệu chung
-   - Cơ cấu tổ chức
-3. Tin tức – Sự kiện
-4. Thông báo
-5. Văn bản
-   - Công khai
-   - Kế hoạch
-   - Thông báo
-6. Liên hệ
-
-> Cấu trúc trên phù hợp với cổng thông tin các trường công lập, thuận lợi cho kiểm tra, thanh tra và báo cáo.
-
----
-
-## IV. CHUẨN HOÁ TÊN MỤC HÀNH CHÍNH
-
-| Nhóm nội dung | Tên mục sử dụng chính thức |
-|---------------|----------------------------|
-| Tin bài | Tin tức – Sự kiện |
-| Thông báo | Thông báo |
-| Văn bản bắt buộc | Văn bản – Công khai |
-| Kế hoạch năm/tháng | Văn bản – Kế hoạch |
-| Công văn, thông báo | Văn bản – Thông báo |
-| Giới thiệu | Giới thiệu nhà trường |
-| Tổ chức | Cơ cấu tổ chức |
-
-> Không dùng các tên không mang tính hành chính như: Blog, Bài viết mới, Tin hot…
-
----
-
-## V. HƯỚNG DẪN SỬ DỤNG (BÀN GIAO CHO NHÀ TRƯỜNG)
-
-### 1. Đăng nhập quản trị
-- Truy cập: `/admin`
-- Đăng nhập bằng email quản trị đã được cấp
-- Sau khi đăng nhập thành công sẽ vào trang quản lý nội dung
-
----
-
-### 2. Đăng tin tức / thông báo
-1. Chọn **Đăng tin**
-2. Nhập tiêu đề
-3. Soạn nội dung (giống Word)
-4. Chọn loại: Tin tức hoặc Thông báo
-5. Chọn ảnh đại diện (nếu có)
-6. Bấm **Đăng**
-
-➡ Tin sẽ tự động hiển thị đúng mục ngoài trang chủ
-
----
-
-### 3. Đăng văn bản (PDF / Word)
-1. Chọn **Đăng văn bản**
-2. Nhập:
-   - Tên văn bản
-   - Số, ký hiệu
-   - Ngày ban hành
-3. Tải file PDF hoặc Word
-4. Chọn loại:
-   - Công khai
-   - Kế hoạch
-   - Thông báo
-5. Bấm **Đăng**
-
-➡ Văn bản sẽ xuất hiện đúng chuyên mục trên website
-
----
-
-### 4. Quản lý nội dung
-- Có thể sửa hoặc xoá tin, văn bản đã đăng
-- Nội dung sau khi sửa sẽ cập nhật ngay
-
----
-
-### 5. Quy định sử dụng
-- Chỉ 01 tài khoản quản trị
-- Không chia sẻ mật khẩu
-- Sao lưu nội dung định kỳ (nếu cần)
-
----
-
-**Tài liệu này dùng để bàn giao và hướng dẫn sử dụng Cổng thông tin điện tử Trường THCS Điện Biên Đông.**
-
