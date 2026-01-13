@@ -32,9 +32,9 @@
     /* NEWS */
     .news-item { padding:12px 0; border-bottom:1px dashed #ddd; }
     .news-item:last-child { border-bottom:none; }
-    .news-item h3 { margin:0 0 6px; font-size:16px; }
+    .news-item h3 { margin:0 0 6px; font-size:16px; cursor:pointer; }
     .news-item p { margin:0; font-size:14px; color:#555; }
-    .news-item small { color:#888; }
+    .news-item small { color:#888; display:block; margin-bottom:6px; }
 
     /* SIDEBAR */
     .sidebar p { margin:8px 0; font-size:14px; }
@@ -90,7 +90,7 @@
 <section id="tin-tuc" class="container">
   <div class="card">
     <h2>Tin nổi bật</h2>
-    <div id="news"></div> <!-- Nơi hiển thị tin từ localStorage -->
+    <div id="news"></div> <!-- Nơi hiển thị tin nổi bật -->
   </div>
 
   <div class="card sidebar">
@@ -107,21 +107,37 @@
 </footer>
 
 <script>
-  // Lấy tin từ localStorage
+  // Lấy tin nổi bật từ localStorage
   const news = JSON.parse(localStorage.getItem("news") || "[]");
   const newsBox = document.getElementById("news");
 
   if(news.length === 0){
-    newsBox.innerHTML = "<p>Chưa có tin nào.</p>";
+    newsBox.innerHTML = "<p>Chưa có tin nổi bật.</p>";
   } else {
-    news.forEach(n=>{
-      newsBox.innerHTML += `
-        <div class="news-item">
-          <h3>${n.title}</h3>
-          <small>${n.date}</small>
-          <p>${n.content}</p>
-        </div>
-      `;
+    news.forEach((n) => {
+      const div = document.createElement("div");
+      div.className = "news-item";
+
+      // Tiêu đề click để mở/đóng
+      const h3 = document.createElement("h3");
+      h3.innerText = n.title;
+
+      const small = document.createElement("small");
+      small.innerText = n.date;
+
+      const p = document.createElement("p");
+      p.innerText = n.content;
+      p.style.display = "none"; // ẩn ban đầu
+
+      h3.onclick = () => {
+        p.style.display = p.style.display === "none" ? "block" : "none";
+      };
+
+      div.appendChild(h3);
+      div.appendChild(small);
+      div.appendChild(p);
+
+      newsBox.appendChild(div);
     });
   }
 </script>
